@@ -18,11 +18,13 @@ function Cart() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2 style={{ color: "red" }}>
-        Cart Page
+      <h2 style={{ color: "darkblue" }}>
+        Shopping Cart
       </h2>
 
-      <h3>Total: ₹{total}</h3>
+      <h3 style={{ color: "green" }}>
+        Total: ₹{total}
+      </h3>
 
       {cart.length === 0 ? (
         <p>No Products In Cart</p>
@@ -30,21 +32,21 @@ function Cart() {
         cart.map((item, index) => (
           <div key={index}>
             <h3>{item.name}</h3>
-            <p>₹{item.price}</p>
 
-            <h4>REMOVE BUTTON BELOW</h4>
+            <p>₹{item.price}</p>
 
             <button
               style={{
-                background: "blue",
+                background: "red",
                 color: "white",
                 padding: "10px",
                 border: "none",
-                cursor: "pointer"
+                borderRadius: "5px",
+                cursor: "pointer",
               }}
               onClick={() => removeItem(index)}
             >
-              REMOVE TEST
+              Remove
             </button>
 
             <hr />

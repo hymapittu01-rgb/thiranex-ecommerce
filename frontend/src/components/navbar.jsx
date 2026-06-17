@@ -13,25 +13,56 @@ function Navbar() {
         color: "white",
       }}
     >
-      <h2>E-Commerce</h2>
+      <h2 style={{ color: "gold" }}>
+        Thiranex E-Commerce
+      </h2>
 
-      <Link to="/" style={{ color: "white", marginRight: "10px" }}>
+      <Link
+        to="/"
+        style={{
+          color: "white",
+          marginRight: "10px",
+        }}
+      >
         Home
       </Link>
 
-      <Link to="/login" style={{ color: "white", marginRight: "10px" }}>
+      <Link
+        to="/login"
+        style={{
+          color: "white",
+          marginRight: "10px",
+        }}
+      >
         Login
       </Link>
 
-      <Link to="/register" style={{ color: "white", marginRight: "10px" }}>
+      <Link
+        to="/register"
+        style={{
+          color: "white",
+          marginRight: "10px",
+        }}
+      >
         Register
       </Link>
 
-      <Link to="/cart" style={{ color: "white", marginRight: "10px" }}>
+      <Link
+        to="/cart"
+        style={{
+          color: "white",
+          marginRight: "10px",
+        }}
+      >
         Cart ({cart.length})
       </Link>
 
-      <Link to="/admin" style={{ color: "white" }}>
+      <Link
+        to="/admin"
+        style={{
+          color: "white",
+        }}
+      >
         Admin
       </Link>
     </nav>

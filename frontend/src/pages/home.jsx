@@ -2,9 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 function Home() {
-  const { cart, setCart } = useContext(CartContext);
-
   const [products, setProducts] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -15,30 +14,51 @@ function Home() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2 style={{ color: "orangered" }}>
+      <h1 style={{ color: "orangered" }}>
         Welcome To E-Commerce Store
-      </h2>
+      </h1>
 
-      {products.map((product) => (
-        <div
-          key={product.id}
-          style={{
-            border: "1px solid #ccc",
-            padding: "15px",
-            marginBottom: "15px",
-            width: "250px",
-          }}
-        >
-          <h3>{product.name}</h3>
-          <p>Price: ₹{product.price}</p>
-
-          <button
-            onClick={() => setCart([...cart, product])}
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+        }}
+      >
+        {products.map((product) => (
+          <div
+            key={product.id}
+            style={{
+              border: "1px solid #ccc",
+              padding: "20px",
+              width: "250px",
+              borderRadius: "10px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+              background: "white",
+            }}
           >
-            Add To Cart
-          </button>
-        </div>
-      ))}
+            <h2>{product.name}</h2>
+
+            <p>
+              Price: ₹{product.price}
+            </p>
+
+            <button
+              style={{
+                background: "green",
+                color: "white",
+                border: "none",
+                padding: "10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => setCart([...cart, product])}
+            >
+              Add To Cart
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

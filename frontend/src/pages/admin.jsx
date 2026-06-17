@@ -26,14 +26,18 @@ function Admin() {
   };
 
   const deleteProduct = (id) => {
-    setProducts(
-      products.filter((product) => product.id !== id)
+    const updatedProducts = products.filter(
+      (product) => product.id !== id
     );
+
+    setProducts(updatedProducts);
   };
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Admin Panel</h2>
+      <h2 style={{ color: "purple" }}>
+        Admin Dashboard
+      </h2>
 
       <input
         type="text"
@@ -55,7 +59,17 @@ function Admin() {
       <br />
       <br />
 
-      <button onClick={addProduct}>
+      <button
+        style={{
+          background: "blue",
+          color: "white",
+          padding: "10px",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        onClick={addProduct}
+      >
         Add Product
       </button>
 
@@ -70,9 +84,15 @@ function Admin() {
           </p>
 
           <button
-            onClick={() =>
-              deleteProduct(product.id)
-            }
+            style={{
+              background: "red",
+              color: "white",
+              padding: "8px",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            onClick={() => deleteProduct(product.id)}
           >
             Delete
           </button>
